@@ -1,27 +1,27 @@
 from entities.entity_pool import POOL
 from systems.input import InputSystem
 from systems.update import UpdateSystem
-from sound import SoundSystem
 from systems.render import RenderSystem
 
 from systems.subs.keyboard import Keyboard
+from systems.subs.mouse import Mouse
 
 
 class State:
     def __init__(self):
         self.systems = {'input':    InputSystem(),
                         'update':   UpdateSystem(),
-                        'sound':    SoundSystem(),
                         'render':   RenderSystem()}
         self.entity_pool = []
 
         self.add('input', Keyboard())
+        self.add('input', Mouse())
 
-    def add(self, sub, system):
-        self.systems[sub].add_sub(system)
+    def add(self, system, sub):
+        self.systems[system].add_sub(sub)
 
-    def remove(self, sub, system):
-        self.systems[sub].remove_sub(system)
+    def remove(self, system, sub):
+        self.systems[system].remove_sub(sub)
 
     def start(self):
         self.activate()
