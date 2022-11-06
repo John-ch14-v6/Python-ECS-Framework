@@ -24,7 +24,6 @@ class State:
         self.systems[system].remove_sub(sub)
 
     def start(self):
-        self.activate()
         for system in self.systems.values():
             system.start()
 
