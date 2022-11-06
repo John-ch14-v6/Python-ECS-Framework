@@ -2,7 +2,7 @@
 
 Entity Component System framework (Python 3.10, PyGame 2.1.2)
 
-Provided for free use without attribution under CC0
+Provided for free use without attribution under Unlicense
 
 Core loop:
 run()
